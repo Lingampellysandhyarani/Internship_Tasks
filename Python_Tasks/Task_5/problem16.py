@@ -1,0 +1,21 @@
+Problem 16 : Collections_counter
+HackerRank : https://www.hackerrank.com/challenges/collections-counter/problem
+
+from collections import Counter
+
+x = int(input())
+shoe_sizes = list(map(int, input().split()))
+
+inventory = Counter(shoe_sizes)
+
+n = int(input())
+earnings = 0
+
+for _ in range(n):
+    size, price = map(int, input().split())
+
+    if inventory[size] > 0:
+        earnings += price
+        inventory[size] -= 1
+
+print(earnings)
